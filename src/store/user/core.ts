@@ -35,7 +35,7 @@ export const updateUser = (
     id,
     name: newName,
     createdAt: oldUser.createdAt,
-    updatedAt: new Date().toString(),
+    updatedAt: new Date().getTime(),
   }
   const updatedUsersById = {
     ...state.usersById,

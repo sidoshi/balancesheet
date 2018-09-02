@@ -11,8 +11,8 @@ export const addUser = createAction(
   resolve => (name: string) =>
     resolve({
       name,
-      createdAt: new Date().toString(),
-      updatedAt: new Date().toString(),
+      createdAt: new Date().getTime(),
+      updatedAt: new Date().getTime(),
       id: generate(),
     } as User)
 )
