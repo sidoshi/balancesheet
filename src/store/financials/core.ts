@@ -1,5 +1,6 @@
 import { subDays, isAfter, toDate } from 'date-fns'
 
+import toFixed from '../../utils/toFixed'
 import {
   FinancialsState,
   Transaction,
@@ -17,6 +18,8 @@ export const createTransaction = (
   state: FinancialsState,
   tsx: Transaction
 ): FinancialsState => {
+  tsx.amount = toFixed(tsx.amount, 2)
+
   const currentBalance = state.calculatedBalances[tsx.userId] || 0
   const newBalance = currentBalance + tsx.amount
 
@@ -29,8 +32,8 @@ export const createTransaction = (
   return {
     calculatedBalances: {
       ...state.calculatedBalances,
-      [tsx.userId]: newBalance,
-      [CASH_ID]: newCashBalance,
+      [tsx.userId]: toFixed(newBalance, 2),
+      [CASH_ID]: toFixed(newCashBalance, 2),
     },
     recentTransactions: [tsx, ...state.recentTransactions],
   }
@@ -63,8 +66,8 @@ export const deleteTransaction = (
   return {
     calculatedBalances: {
       ...state.calculatedBalances,
-      [tsx.userId]: newBalance,
-      [CASH_ID]: newCashBalance,
+      [tsx.userId]: toFixed(newBalance, 2),
+      [CASH_ID]: toFixed(newCashBalance, 2),
     },
     recentTransactions: state.recentTransactions.filter(t => t.id !== id),
   }
