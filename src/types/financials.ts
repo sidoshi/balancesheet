@@ -40,3 +40,11 @@ export interface FinancialsState {
   calculatedBalances: CalculatedBalancesByUserId
   recentTransactions: Transactions
 }
+
+export interface Entry {
+  amount: number
+  name: string
+  userId: string
+}
+
+export type Entries = Entry[]
