@@ -9,14 +9,22 @@ export interface ApplicationState {
   financials: FinancialsState
 }
 
-export type RootActions = UsersAction | FinancialsAction
+// Mock action type to be used while testing
+export interface MockAction {
+  type: '@mock/IGNORE'
+}
+export const mockAction: MockAction = {
+  type: '@mock/IGNORE',
+}
 
-const reducers: Reducer<ApplicationState, RootActions> = combineReducers<
+export type RootActions = UsersAction | FinancialsAction | MockAction
+
+export const rootReducer: Reducer<
   ApplicationState,
   RootActions
->({
+> = combineReducers<ApplicationState, RootActions>({
   users: userReducer,
   financials: financialsReducer,
 })
 
-export const store = createStore(reducers)
+export const store = createStore(rootReducer)
