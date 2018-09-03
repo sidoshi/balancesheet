@@ -2,8 +2,13 @@ import { UsersState, User } from '../../types'
 import deleteKey from '../../utils/deleteKey'
 
 export const addUser = (state: UsersState, user: User): UsersState => {
+  user.name = user.name.toLowerCase()
+
   // Dont add if already exists. Use update instead.
   if (state.usersById[user.id]) {
+    return state
+  }
+  if (state.usersByName[user.name]) {
     return state
   }
 
@@ -33,7 +38,7 @@ export const updateUser = (
   const oldUser = state.usersById[id]
   const newUser: User = {
     id,
-    name: newName,
+    name: newName.toLowerCase(),
     createdAt: oldUser.createdAt,
     updatedAt: Date.now(),
   }
@@ -43,7 +48,7 @@ export const updateUser = (
   }
   const updatedUsersByName = {
     ...state.usersByName,
-    [newName]: newUser,
+    [newName.toLowerCase()]: newUser,
   }
 
   return {

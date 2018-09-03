@@ -9,16 +9,28 @@ test('adds user', () => {
 
   const stateWithUser1 = reducer(undefined, user1AddAction)
   expect(stateWithUser1.usersByName).toEqual({
-    'User 1': user1,
+    'user 1': {
+      ...user1,
+      name: user1.name.toLowerCase(),
+    },
   })
   expect(stateWithUser1.usersById).toEqual({
-    [user1.id]: user1,
+    [user1.id]: {
+      ...user1,
+      name: user1.name.toLowerCase(),
+    },
   })
 
   const stateWithUser2 = reducer(stateWithUser1, user2AddAction)
   expect(stateWithUser2.usersByName).toEqual({
-    'User 2': user2,
-    'User 1': user1,
+    'user 2': {
+      ...user2,
+      name: user2.name.toLowerCase(),
+    },
+    'user 1': {
+      ...user1,
+      name: user1.name.toLowerCase(),
+    },
   })
   expect(stateWithUser2.usersById).toEqual({
     [user2.id]: user2,
@@ -32,10 +44,16 @@ test('updates user', () => {
 
   const stateWithUser1 = reducer(undefined, user1AddAction)
   expect(stateWithUser1.usersByName).toEqual({
-    'User 1': user1,
+    'user 1': {
+      ...user1,
+      name: user1.name.toLowerCase(),
+    },
   })
   expect(stateWithUser1.usersById).toEqual({
-    [user1.id]: user1,
+    [user1.id]: {
+      ...user1,
+      name: user1.name.toLowerCase(),
+    },
   })
 
   const updatedState = reducer(
@@ -45,10 +63,10 @@ test('updates user', () => {
       newName: 'User 2',
     })
   )
-  expect(updatedState.usersByName).toHaveProperty('User 2')
-  expect(updatedState.usersByName).not.toHaveProperty('User 1')
+  expect(updatedState.usersByName).toHaveProperty('user 2')
+  expect(updatedState.usersByName).not.toHaveProperty('user 1')
   expect(updatedState.usersById).toHaveProperty(user1.id)
-  expect(updatedState.usersById[user1.id].name).toEqual('User 2')
+  expect(updatedState.usersById[user1.id].name).toEqual('user 2')
 })
 
 test('deletes user', () => {
@@ -57,10 +75,16 @@ test('deletes user', () => {
 
   const stateWithUser1 = reducer(undefined, user1AddAction)
   expect(stateWithUser1.usersByName).toEqual({
-    'User 1': user1,
+    'user 1': {
+      ...user1,
+      name: user1.name.toLowerCase(),
+    },
   })
   expect(stateWithUser1.usersById).toEqual({
-    [user1.id]: user1,
+    [user1.id]: {
+      ...user1,
+      name: user1.name.toLowerCase(),
+    },
   })
 
   const updatedState = reducer(stateWithUser1, actions.deleteUser(user1.id))
