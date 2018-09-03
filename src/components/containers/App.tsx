@@ -4,13 +4,13 @@ import { Route } from 'react-router-dom'
 import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
-import BalanceSheetContainer from './containers/BalanceSheet'
-import UserInfoContainer from './containers/UserInfo'
-import TransactionsContainer from './containers/Transactions'
-import { ApplicationState } from '../store'
-import { selectUsersById, selectCreditEntries } from '../selectors'
-import { addUser } from '../store/user/actions'
-import { UsersById, CASH_ID } from '../types'
+import BalanceSheetContainer from './BalanceSheet'
+import UserInfoContainer from './UserInfo'
+import TransactionsContainer from './Transactions'
+import { ApplicationState } from '../../store'
+import { selectUsersById, selectCreditEntries } from '../../selectors'
+import { addUser } from '../../store/user/actions'
+import { UsersById, CASH_ID } from '../../types'
 
 const BaseContainer = styled.div`
   max-width: 1000px;
