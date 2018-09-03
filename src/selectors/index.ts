@@ -27,7 +27,10 @@ export const selectCreditEntries = createSelector(
   selectCalculatedBalances,
   selectUsersById,
   (balances: CalculatedBalancesByUserId, usersById: UsersById): Entries => {
-    return Object.entries(balances)
+    return Object.entries({
+      [CASH_ID]: 0,
+      ...balances,
+    })
       .filter(([userId, amount]) => amount < 0 || userId === CASH_ID)
       .map(([userId, amount]) => {
         let visibleAmount = amount

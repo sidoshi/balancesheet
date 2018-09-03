@@ -1,7 +1,7 @@
 import { generate } from 'shortid'
 import { createAction, createStandardAction } from 'typesafe-actions'
 
-import { User } from '../../types'
+import { User, CASH_ID } from '../../types'
 import * as actions from './constants'
 
 type ID = string
@@ -13,7 +13,7 @@ export const addUser = createAction(
       name,
       createdAt: Date.now(),
       updatedAt: Date.now(),
-      id: generate(),
+      id: name.toLowerCase() === 'cash' ? CASH_ID : generate(),
     } as User)
 )
 
