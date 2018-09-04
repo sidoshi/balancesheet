@@ -1,5 +1,14 @@
-import { UsersState, User } from '../../types'
+import { generate } from 'shortid'
+
+import { UsersState, User, CASH_ID } from '../../types'
 import deleteKey from '../../utils/deleteKey'
+
+export const buildUser = (name: string, cash: boolean = false): User => ({
+  name: name.toLowerCase(),
+  id: cash ? CASH_ID : generate(),
+  createdAt: Date.now(),
+  updatedAt: Date.now(),
+})
 
 export const addUser = (state: UsersState, user: User): UsersState => {
   user.name = user.name.toLowerCase()

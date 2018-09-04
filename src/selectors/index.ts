@@ -43,7 +43,7 @@ export const selectCreditEntries = createSelector(
 
         return {
           userId,
-          name: (user && user.name) || 'Deleted User',
+          name: (user && user.name) || 'deleted user',
           amount: visibleAmount,
         }
       })
@@ -61,7 +61,7 @@ export const selectDebitEntries = createSelector(
 
         return {
           userId,
-          name: (user && user.name) || 'Deleted User',
+          name: (user && user.name) || 'deleted user',
           amount: Math.abs(amount),
         }
       })

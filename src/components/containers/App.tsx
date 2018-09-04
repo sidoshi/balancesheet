@@ -11,6 +11,7 @@ import { ApplicationState } from '../../store'
 import { selectUsersById, selectCreditEntries } from '../../selectors'
 import { addUser } from '../../store/user/actions'
 import { UsersById, CASH_ID } from '../../types'
+import { buildUser } from '../../store/user/core'
 
 const BaseContainer = styled.div`
   max-width: 1000px;
@@ -25,7 +26,7 @@ interface AppProps {
 class App extends React.Component<AppProps> {
   public componentDidMount() {
     if (!this.props.usersById[CASH_ID]) {
-      this.props.addUser('cash')
+      this.props.addUser(buildUser('cash', true))
     }
   }
 

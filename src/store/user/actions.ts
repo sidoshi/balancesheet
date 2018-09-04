@@ -1,21 +1,11 @@
-import { generate } from 'shortid'
-import { createAction, createStandardAction } from 'typesafe-actions'
+import {  createStandardAction } from 'typesafe-actions'
 
-import { User, CASH_ID } from '../../types'
+import { User } from '../../types'
 import * as actions from './constants'
 
 type ID = string
 
-export const addUser = createAction(
-  actions.ADD_USER,
-  resolve => (name: string) =>
-    resolve({
-      name,
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      id: name.toLowerCase() === 'cash' ? CASH_ID : generate(),
-    } as User)
-)
+export const addUser = createStandardAction(actions.ADD_USER)<User>()
 
 export const updateUser = createStandardAction(actions.UPDATE_USER)<{
   id: ID

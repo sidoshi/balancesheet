@@ -1,11 +1,12 @@
 import * as actions from '../actions'
 import reducer from '../reducer'
+import { buildUser } from '../core'
 
 test('adds user', () => {
-  const user1AddAction = actions.addUser('User 1')
-  const user2AddAction = actions.addUser('User 2')
-  const user1 = user1AddAction.payload
-  const user2 = user2AddAction.payload
+  const user1 = buildUser('User 1')
+  const user2 = buildUser('User 2')
+  const user1AddAction = actions.addUser(user1)
+  const user2AddAction = actions.addUser(user2)
 
   const stateWithUser1 = reducer(undefined, user1AddAction)
   expect(stateWithUser1.usersByName).toEqual({
@@ -39,8 +40,8 @@ test('adds user', () => {
 })
 
 test('updates user', () => {
-  const user1AddAction = actions.addUser('User 1')
-  const user1 = user1AddAction.payload
+  const user1 = buildUser('User 1')
+  const user1AddAction = actions.addUser(user1)
 
   const stateWithUser1 = reducer(undefined, user1AddAction)
   expect(stateWithUser1.usersByName).toEqual({
@@ -70,8 +71,8 @@ test('updates user', () => {
 })
 
 test('deletes user', () => {
-  const user1AddAction = actions.addUser('User 1')
-  const user1 = user1AddAction.payload
+  const user1 = buildUser('User 1')
+  const user1AddAction = actions.addUser(user1)
 
   const stateWithUser1 = reducer(undefined, user1AddAction)
   expect(stateWithUser1.usersByName).toEqual({

@@ -27,7 +27,7 @@ describe('selectCreditEntries', () => {
         ...s.users,
         usersById: {
           user1: createMockUser('Test User'),
-          [CASH_ID]: createMockUser('Cash'),
+          [CASH_ID]: createMockUser('Cash', true),
         },
       },
       financials: {
@@ -37,11 +37,11 @@ describe('selectCreditEntries', () => {
     }))
 
     expect(selectCreditEntries(state)).toEqual([
-      { amount: 50000, name: 'Test User', userId: 'user1' },
-      { amount: 40000, name: 'Deleted User', userId: 'user2' },
-      { amount: 30000, name: 'Deleted User', userId: 'user3' },
-      { amount: 20000, name: 'Deleted User', userId: 'user4' },
-      { amount: 60000, name: 'Cash', userId: CASH_ID },
+      { amount: 60000, name: 'cash', userId: CASH_ID },
+      { amount: 50000, name: 'test user', userId: 'user1' },
+      { amount: 40000, name: 'deleted user', userId: 'user2' },
+      { amount: 30000, name: 'deleted user', userId: 'user3' },
+      { amount: 20000, name: 'deleted user', userId: 'user4' },
     ])
   })
 
@@ -64,7 +64,7 @@ describe('selectCreditEntries', () => {
         ...s.users,
         usersById: {
           user1: createMockUser('Test User'),
-          [CASH_ID]: createMockUser('Cash'),
+          [CASH_ID]: createMockUser('Cash', true),
         },
       },
       financials: {
@@ -74,11 +74,11 @@ describe('selectCreditEntries', () => {
     }))
 
     expect(selectCreditEntries(state)).toEqual([
-      { amount: 50000, name: 'Test User', userId: 'user1' },
-      { amount: 40000, name: 'Deleted User', userId: 'user2' },
-      { amount: 30000, name: 'Deleted User', userId: 'user3' },
-      { amount: 20000, name: 'Deleted User', userId: 'user4' },
-      { amount: -60000, name: 'Cash', userId: CASH_ID },
+      { amount: -60000, name: 'cash', userId: CASH_ID },
+      { amount: 50000, name: 'test user', userId: 'user1' },
+      { amount: 40000, name: 'deleted user', userId: 'user2' },
+      { amount: 30000, name: 'deleted user', userId: 'user3' },
+      { amount: 20000, name: 'deleted user', userId: 'user4' },
     ])
   })
 })
@@ -112,11 +112,11 @@ describe('selectCreditEntries', () => {
     }))
 
     expect(selectDebitEntries(state)).toEqual([
-      { amount: 10000, name: 'Test User', userId: 'user5' },
-      { amount: 20000, name: 'Deleted User', userId: 'user6' },
-      { amount: 30000, name: 'Deleted User', userId: 'user7' },
-      { amount: 40000, name: 'Deleted User', userId: 'user8' },
-      { amount: 50000, name: 'Deleted User', userId: 'user9' },
+      { amount: 10000, name: 'test user', userId: 'user5' },
+      { amount: 20000, name: 'deleted user', userId: 'user6' },
+      { amount: 30000, name: 'deleted user', userId: 'user7' },
+      { amount: 40000, name: 'deleted user', userId: 'user8' },
+      { amount: 50000, name: 'deleted user', userId: 'user9' },
     ])
   })
 
@@ -139,7 +139,7 @@ describe('selectCreditEntries', () => {
         ...s.users,
         usersById: {
           user5: createMockUser('Test User'),
-          [CASH_ID]: createMockUser('Cash'),
+          [CASH_ID]: createMockUser('Cash', true),
         },
       },
       financials: {
@@ -149,11 +149,11 @@ describe('selectCreditEntries', () => {
     }))
 
     expect(selectDebitEntries(state)).toEqual([
-      { amount: 10000, name: 'Test User', userId: 'user5' },
-      { amount: 20000, name: 'Deleted User', userId: 'user6' },
-      { amount: 30000, name: 'Deleted User', userId: 'user7' },
-      { amount: 40000, name: 'Deleted User', userId: 'user8' },
-      { amount: 50000, name: 'Deleted User', userId: 'user9' },
+      { amount: 10000, name: 'test user', userId: 'user5' },
+      { amount: 20000, name: 'deleted user', userId: 'user6' },
+      { amount: 30000, name: 'deleted user', userId: 'user7' },
+      { amount: 40000, name: 'deleted user', userId: 'user8' },
+      { amount: 50000, name: 'deleted user', userId: 'user9' },
     ])
   })
 })
@@ -177,7 +177,7 @@ test('selectCreditEntriesTotal', () => {
       ...s.users,
       usersById: {
         user1: createMockUser('Test User'),
-        [CASH_ID]: createMockUser('Cash'),
+        [CASH_ID]: createMockUser('Cash', true),
       },
     },
     financials: {
@@ -208,7 +208,7 @@ test('selectDebitEntriesTotal', () => {
       ...s.users,
       usersById: {
         user5: createMockUser('Test User'),
-        [CASH_ID]: createMockUser('Cash'),
+        [CASH_ID]: createMockUser('Cash', true),
       },
     },
     financials: {

@@ -1,3 +1,4 @@
+import { generate } from 'shortid'
 import { subDays, isAfter, toDate } from 'date-fns'
 
 import toFixed from '../../utils/toFixed'
@@ -7,6 +8,18 @@ import {
   CASH_ID,
   TransactionType,
 } from '../../types'
+
+export const buildTransaction = (
+  userId: string,
+  amount: number,
+  transactionType: TransactionType
+): Transaction => ({
+  id: generate(),
+  userId,
+  amount,
+  type: transactionType,
+  createdAt: Date.now(),
+})
 
 /**
  * A new transaction is added to the list of transactions and its effect on

@@ -1,8 +1,8 @@
 import { generate } from 'shortid'
 
 import { ApplicationState, rootReducer, mockAction } from '../../store'
-import { addUser } from '../../store/user/actions'
-import { createTransaction } from '../../store/financials/actions'
+import { buildUser } from '../../store/user/core'
+import { buildTransaction } from '../../store/financials/core'
 import { TransactionType } from '../../types'
 
 type Merger = (state: ApplicationState) => ApplicationState
@@ -11,11 +11,13 @@ type Merger = (state: ApplicationState) => ApplicationState
 export const mergeDefaultState = (merger: Merger): ApplicationState =>
   merger(rootReducer(undefined, mockAction))
 
-export const createMockUser = (name: string = 'Test User') =>
-  addUser(name).payload
+export const createMockUser = (
+  name: string = 'Test User',
+  cash: boolean = false
+) => buildUser(name, cash)
 
 export const createMockTransaction = (
   userId: string = generate(),
   amount: number = 100000,
   transactionType: TransactionType = TransactionType.CASH
-) => createTransaction(userId, amount, transactionType).payload
+) => buildTransaction(userId, amount, transactionType)
