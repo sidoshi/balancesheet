@@ -1,8 +1,10 @@
 import { combineReducers, createStore, Reducer } from 'redux'
+import throttle from 'lodash-es/throttle'
 
 import { UsersState, FinancialsState } from '../types'
 import userReducer, { UsersAction } from './user/reducer'
 import financialsReducer, { FinancialsAction } from './financials/reducer'
+import { loadState, saveState } from './localStorage'
 
 export interface ApplicationState {
   users: UsersState
@@ -27,8 +29,16 @@ export const rootReducer: Reducer<
   financials: financialsReducer,
 })
 
+const persistedState = loadState()
 export const store = createStore(
   rootReducer,
+  persistedState,
   (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
     (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+)
+
+store.subscribe(
+  throttle(() => {
+    saveState(store.getState())
+  }, 2000)
 )
