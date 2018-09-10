@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 
+import ingectGlobalStyles from './globalStyles'
 import { store } from './store'
 import App from './components/containers/App'
 import registerServiceWorker from './registerServiceWorker'
@@ -16,3 +17,4 @@ ReactDOM.render(
   document.getElementById('root') as HTMLElement
 )
 registerServiceWorker()
+ingectGlobalStyles()
