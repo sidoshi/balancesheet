@@ -45,8 +45,8 @@ export const createTransaction = (
   return {
     calculatedBalances: {
       ...state.calculatedBalances,
-      [tsx.userId]: toFixed(newBalance, 2),
       [CASH_ID]: toFixed(newCashBalance, 2),
+      [tsx.userId]: toFixed(newBalance, 2),
     },
     recentTransactions: [tsx, ...state.recentTransactions],
   }
@@ -79,8 +79,8 @@ export const deleteTransaction = (
   return {
     calculatedBalances: {
       ...state.calculatedBalances,
-      [tsx.userId]: toFixed(newBalance, 2),
       [CASH_ID]: toFixed(newCashBalance, 2),
+      [tsx.userId]: toFixed(newBalance, 2),
     },
     recentTransactions: state.recentTransactions.filter(t => t.id !== id),
   }
