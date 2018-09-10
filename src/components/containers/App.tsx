@@ -1,5 +1,4 @@
 import * as React from 'react'
-import styled from 'styled-components'
 import { Route } from 'react-router-dom'
 import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
@@ -12,11 +11,6 @@ import { selectUsersById, selectCreditEntries } from '../../selectors'
 import { addUser } from '../../store/user/actions'
 import { UsersById, CASH_ID } from '../../types'
 import { buildUser } from '../../store/user/core'
-
-const BaseContainer = styled.div`
-  max-width: 1000px;
-  margin: 0 auto;
-`
 
 interface AppProps {
   usersById: UsersById
@@ -32,11 +26,11 @@ class App extends React.Component<AppProps> {
 
   public render() {
     return (
-      <BaseContainer>
+      <React.Fragment>
         <Route exact={true} path="/" component={BalanceSheetContainer} />
         <Route path="/user/:userId" component={UserInfoContainer} />
         <Route path="/transactions" component={TransactionsContainer} />
-      </BaseContainer>
+      </React.Fragment>
     )
   }
 }
