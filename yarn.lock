@@ -8675,7 +8675,15 @@ tsconfig-paths-webpack-plugin@^2.0.0:
     chalk "^2.3.0"
     tsconfig-paths "^3.1.1"
 
-tsconfig-paths@^3.1.1:
+tsconfig-paths-webpack-plugin@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/tsconfig-paths-webpack-plugin/-/tsconfig-paths-webpack-plugin-3.2.0.tgz#6e70bd42915ad0efb64d3385163f0c1270f3e04d"
+  dependencies:
+    chalk "^2.3.0"
+    enhanced-resolve "^4.0.0"
+    tsconfig-paths "^3.4.0"
+
+tsconfig-paths@^3.1.1, tsconfig-paths@^3.4.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-3.6.0.tgz#f14078630d9d6e8b1dc690c1fc0cfb9cd0663891"
   dependencies:

@@ -40,6 +40,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "prettier": "^1.14.2",
     "redux-devtools-extension": "^2.13.5",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
     "typescript": "^3.0.3"
   }
 }
