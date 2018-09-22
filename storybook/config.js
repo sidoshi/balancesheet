@@ -5,12 +5,10 @@ import 'semantic-ui-css/semantic.min.css'
 const req = require.context('../src/components', true, /\.stories\.tsx$/)
 
 const styles = {
-  backgroundColor: 'black',
+  backgroundColor: '#121212',
   width: '100%',
   height: '100vh',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  padding: '20px',
 }
 
 const CenterDecorator = storyFn => <div style={styles}>{storyFn()}</div>
