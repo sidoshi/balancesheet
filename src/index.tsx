@@ -8,6 +8,8 @@ import { store } from './store'
 import App from './components/containers/App'
 import registerServiceWorker from './registerServiceWorker'
 
+import 'semantic-ui-css/semantic.min.css'
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

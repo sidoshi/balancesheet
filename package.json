@@ -7,6 +7,7 @@
     "@types/react-redux": "^6.0.6",
     "@types/react-router-dom": "^4.3.0",
     "date-fns": "^2.0.0-alpha.16",
+    "downshift": "^2.2.2",
     "lodash-es": "^4.17.10",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -15,6 +16,8 @@
     "react-scripts-ts": "2.17.0",
     "redux": "^4.0.0",
     "reselect": "^3.0.1",
+    "semantic-ui-css": "^2.4.0",
+    "semantic-ui-react": "^0.82.5",
     "shortid": "^2.2.13",
     "styled-components": "^3.4.5",
     "typesafe-actions": "^2.0.4"
@@ -23,14 +26,18 @@
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "eject": "react-scripts-ts eject",
+    "storybook": "start-storybook -p 9001 -c storybook"
   },
   "devDependencies": {
+    "@storybook/react": "4.0.0-alpha.3",
     "@types/jest": "^23.3.1",
     "@types/node": "^10.9.4",
     "@types/react": "^16.4.13",
     "@types/react-dom": "^16.0.7",
     "@types/shortid": "0.0.29",
+    "@types/storybook__react": "^3.0.9",
+    "awesome-typescript-loader": "^5.2.1",
     "prettier": "^1.14.2",
     "redux-devtools-extension": "^2.13.5",
     "typescript": "^3.0.3"
