@@ -3,7 +3,9 @@
 // background should be in contrast with text colors
 
 interface Theme {
-  background: string
+  backgroundPrimary: string
+  backgroundSecondary: string
+  backgroundTertiary: string
   primary: string
   secondary: string
   textPrimary: string
@@ -11,7 +13,9 @@ interface Theme {
 }
 
 export const darkTheme: Theme = {
-  background: '#121212',
+  backgroundPrimary: '#121212',
+  backgroundSecondary: '#232323',
+  backgroundTertiary: '#343434',
   primary: 'teal',
   secondary: 'coral',
   textPrimary: '#e2e2e2',
