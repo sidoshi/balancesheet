@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Input, InputProps } from 'semantic-ui-react'
 import styled from 'styled-components'
 
-interface Props extends InputProps {
+export interface Props extends InputProps {
   variant?: 'themed' | 'default'
 }
 

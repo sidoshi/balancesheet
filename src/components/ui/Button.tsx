@@ -5,7 +5,7 @@ import styled from 'styled-components'
 // Themed variant matches the current theme. It does not support primary,
 // secondary etc props.
 // Use default button for other usecase
-interface Props extends ButtonProps {
+export interface Props extends ButtonProps {
   variant?: 'default' | 'themed'
 }
 
