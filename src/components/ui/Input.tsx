@@ -3,10 +3,10 @@ import { Input, InputProps } from 'semantic-ui-react'
 import styled from 'styled-components'
 
 interface Props extends InputProps {
-  variant?: 'primary' | 'contrast'
+  variant?: 'themed' | 'default'
 }
 
-const PrimaryInput = styled(Input)`
+const ThemedInput = styled(Input)`
   &&& {
     .label {
       background-color: ${props => props.theme.backgroundTertiary};
@@ -24,10 +24,10 @@ const PrimaryInput = styled(Input)`
 `
 
 export default (props: Props) => {
-  const { variant = 'primary', ...inputProps } = props
-  return variant === 'primary' ? (
-    <PrimaryInput {...inputProps} />
-  ) : (
+  const { variant = 'default', ...inputProps } = props
+  return variant === 'default' ? (
     <Input {...inputProps} />
+  ) : (
+    <ThemedInput {...inputProps} />
   )
 }

@@ -8,9 +8,9 @@ storiesOf('Input', module)
   .add('with label', () => <Input label="Name" />)
   .add('with icon', () => <Input icon="users" />)
   .add('with left icon', () => <Input icon="users" iconPosition="left" />)
-  .add('contrast simple', () => <Input variant="contrast" />)
-  .add('contrast with label', () => <Input variant="contrast" label="Name" />)
-  .add('contrast with icon', () => <Input variant="contrast" icon="users" />)
-  .add('contrast with left icon', () => (
-    <Input variant="contrast" icon="users" iconPosition="left" />
+  .add('themed simple', () => <Input variant="themed" />)
+  .add('themed with label', () => <Input variant="themed" label="Name" />)
+  .add('themed with icon', () => <Input variant="themed" icon="users" />)
+  .add('themed with left icon', () => (
+    <Input variant="themed" icon="users" iconPosition="left" />
   ))
