@@ -4,9 +4,16 @@ import styled from 'styled-components'
 
 export interface Props extends InputProps {
   variant?: 'themed' | 'default'
+  props?: string
 }
 
-const ThemedInput = styled(Input)`
+const StyledInput = styled(Input)`
+  &&& {
+    width: ${props => props.width || 'initial'};
+  }
+`
+
+const ThemedInput = styled(StyledInput)`
   &&& {
     .label {
       background-color: ${props => props.theme.backgroundTertiary};
@@ -26,7 +33,7 @@ const ThemedInput = styled(Input)`
 export default (props: Props) => {
   const { variant = 'default', ...inputProps } = props
   return variant === 'default' ? (
-    <Input {...inputProps} />
+    <StyledInput {...inputProps} />
   ) : (
     <ThemedInput {...inputProps} />
   )
