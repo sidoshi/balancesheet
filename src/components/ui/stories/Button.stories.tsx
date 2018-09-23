@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import styled from 'styled-components'
 
 const MildWrapper = styled.div`
-  background-color: ${props => props.theme.backgroundTertiary};
+  background-color: ${props => props.theme.backgroundSecondary};
   padding: 20px;
 `
 

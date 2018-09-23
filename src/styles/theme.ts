@@ -5,7 +5,7 @@
 // This stays same whatever the theme is
 const SHADOW_COLOR = '#111'
 
-interface Theme {
+export interface Theme {
   backgroundPrimary: string
   backgroundSecondary: string
   backgroundTertiary: string
@@ -26,3 +26,5 @@ export const darkTheme: Theme = {
   textSecondary: '#888888',
   shadow: SHADOW_COLOR,
 }
+
+export default darkTheme
