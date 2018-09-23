@@ -8,13 +8,14 @@ const styles = {
   backgroundColor: '#121212',
   width: '100%',
   height: '100vh',
-  padding: '20px',
 }
 
 const CenterDecorator = storyFn => <div style={styles}>{storyFn()}</div>
 
 function loadStories() {
+  const AppDecorator = require('../src/storyBookDecorators.tsx').AppDecorator
   addDecorator(CenterDecorator)
+  addDecorator(AppDecorator)
   req.keys().forEach(filename => req(filename))
 }
 
