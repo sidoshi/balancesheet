@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/classnames": "^2.2.6",
     "@types/lodash-es": "^4.17.1",
     "@types/react-redux": "^6.0.6",
     "@types/react-router-dom": "^4.3.0",
+    "classnames": "^2.2.6",
     "date-fns": "^2.0.0-alpha.16",
     "downshift": "^2.2.2",
     "lodash-es": "^4.17.10",
