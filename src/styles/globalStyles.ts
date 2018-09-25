@@ -10,7 +10,7 @@ import theme from './theme'
 // See:
 // - https://github.com/Semantic-Org/Semantic-UI/issues/5738
 // - https://github.com/Metnew/suicrux/issues/27
-import '../../semantic/semantic.css'
+import './semantic/semantic.css'
 
 const ingectGlobalStyles = () => injectGlobal`
   body {
