@@ -16,6 +16,7 @@ const ingectGlobalStyles = () => injectGlobal`
   body {
     margin: 0;
     color: ${theme.textPrimary};
+    background-color: #121212;
   }
 `
 
