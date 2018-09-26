@@ -11,14 +11,16 @@ export interface Props extends ButtonProps {
 
 const StyledButton = styled(Button)`
   &&& {
-    box-shadow: 1px 1px 2px ${props => props.theme.shadow};
+    box-shadow: 0 1px 3px ${props => props.theme.shadowPrimary},
+      0 1px 2px ${props => props.theme.shadowSecondary};
+    transition: 0.5s;
 
     &.primary {
       background-color: ${props => props.theme.primary};
     }
 
     &:hover {
-      box-shadow: 2px 2px 2px 2px ${props => props.theme.shadow};
+      opacity: 0.8;
     }
   }
 `
@@ -27,11 +29,6 @@ const ThemedButton = styled(StyledButton)`
   &&& {
     background-color: ${props => props.theme.backgroundTertiary};
     color: ${props => props.theme.textPrimary};
-    transition: 0.5s;
-
-    &:hover {
-      opacity: 0.8;
-    }
   }
 `
 

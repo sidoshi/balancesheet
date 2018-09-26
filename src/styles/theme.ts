@@ -3,7 +3,8 @@
 // background should be in contrast with text colors
 
 // This stays same whatever the theme is
-const SHADOW_COLOR = '#111'
+const SHADOW_PRIMARY_COLOR = 'rgba(0,0,0,0.12)'
+const SHADOW_SECONDARY_COLOR = 'rgba(0,0,0,0.24)'
 const PRIMARY_COLOR = '#d71b2a'
 
 export interface Theme {
@@ -14,7 +15,8 @@ export interface Theme {
   secondary: string
   textPrimary: string
   textSecondary: string
-  shadow: string
+  shadowPrimary: string
+  shadowSecondary: string
 }
 
 export const darkTheme: Theme = {
@@ -24,7 +26,8 @@ export const darkTheme: Theme = {
   secondary: 'coral',
   textPrimary: '#e2e2e2',
   textSecondary: '#888888',
-  shadow: SHADOW_COLOR,
+  shadowPrimary: SHADOW_PRIMARY_COLOR,
+  shadowSecondary: SHADOW_SECONDARY_COLOR,
   primary: PRIMARY_COLOR,
 }
 
