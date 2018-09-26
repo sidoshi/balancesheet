@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Button } from 'semantic-ui-react'
+import styled from 'styled-components'
 
 import StyledButton, { Props as ButtonProps } from './Button'
 
@@ -13,6 +14,13 @@ interface Props extends ButtonProps {
   ) => void
 }
 
+const Or = styled(Button.Or)`
+  &&&::before {
+    background-color: ${props =>
+      props.variant === 'themed' ? props.theme.backgroundTertiary : null};
+  }
+`
+
 export default (props: Props) => (
   <Button.Group>
     <StyledButton
@@ -22,7 +30,7 @@ export default (props: Props) => (
     >
       {props.toggleValues[0]}
     </StyledButton>
-    <Button.Or text="" />
+    <Or text="" variant={props.variant} />
     <StyledButton
       {...props}
       primary={props.selectedIndex === 1}
