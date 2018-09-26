@@ -27,7 +27,7 @@ const StyledButton = styled(Button)`
 
 const ThemedButton = styled(StyledButton)`
   &&& {
-    background-color: ${props => props.theme.backgroundTertiary};
+    background-color: ${props => props.theme.backgroundSecondary};
     color: ${props => props.theme.textPrimary};
   }
 `
