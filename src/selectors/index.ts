@@ -23,6 +23,12 @@ export const selectCalculatedBalances = (
 export const selectRecentTransactions = (state: State): Transactions =>
   state.financials.recentTransactions
 
+export const selectSortedUsers = createSelector(
+  selectUsersByName,
+  (users: UsersByName) =>
+    Object.values(users).sort((a, b) => (a.name < b.name ? -1 : 1))
+)
+
 export const selectCreditEntries = createSelector(
   selectCalculatedBalances,
   selectUsersById,
