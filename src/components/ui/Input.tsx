@@ -22,10 +22,21 @@ const ThemedInput = styled(StyledInput)`
     input {
       background-color: ${props => props.theme.backgroundPrimary};
       color: ${props => props.theme.textPrimary};
-      border-color: ${props => props.theme.backgroundTertiary};
     }
-    i {
+    .icon {
       color: ${props => props.theme.textPrimary};
+    }
+    .button.icon {
+      background-color: ${props => props.theme.backgroundPrimary};
+      color: ${props => props.theme.textSecondary};
+
+      & .icon {
+        color: ${props => props.theme.textSecondary};
+        transition: color 0.5s;
+        &:hover {
+          color: ${props => props.theme.textPrimary};
+        }
+      }
     }
   }
 `

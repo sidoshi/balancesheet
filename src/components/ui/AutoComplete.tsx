@@ -166,7 +166,14 @@ export default (props: Props) => (
       return (
         <div style={{ display: 'inline-block' }}>
           <Wrapper>
-            <Input {...ds.getInputProps()} {...inputProps} />
+            <Input
+              {...ds.getInputProps()}
+              {...inputProps}
+              action={{
+                icon: 'times',
+                onClick: ds.clearSelection,
+              }}
+            />
             <Suggestions props={props} ds={ds} />
           </Wrapper>
         </div>
