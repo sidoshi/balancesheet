@@ -1,5 +1,5 @@
 import { combineReducers, createStore, Reducer } from 'redux'
-import throttle from 'lodash-es/throttle'
+import throttle from 'lodash/throttle'
 
 import { UsersState, FinancialsState } from '../types'
 import userReducer, { UsersAction } from './user/reducer'
