@@ -16,7 +16,17 @@ const ingectGlobalStyles = () => injectGlobal`
   body {
     margin: 0;
     color: ${theme.textPrimary};
-    background-color: #121212;
+    background-color: ${theme.backgroundPrimary};
+    
+    &::selection {
+      background-color: #CCE2FF;
+      color: ${theme.textPrimary};
+    }
+
+    textarea::selection, input::selection {
+      background-color: #CCE2FF;
+      color: ${theme.textPrimary};
+    }
   }
 `
 

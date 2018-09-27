@@ -13,7 +13,7 @@ const StyledButton = styled(Button)`
   &&& {
     box-shadow: 0 1px 3px ${props => props.theme.shadowPrimary},
       0 1px 2px ${props => props.theme.shadowSecondary};
-    transition: 0.5s;
+    transition: background-color 0.5s, opacity 0.5s;
 
     &.primary {
       background-color: ${props => props.theme.primary};
@@ -21,6 +21,10 @@ const StyledButton = styled(Button)`
 
     &:hover {
       opacity: 0.8;
+    }
+
+    &:focus {
+      outline: #85b7d9 auto 1px;
     }
   }
 `
