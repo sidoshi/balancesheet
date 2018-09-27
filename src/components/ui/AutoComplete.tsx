@@ -1,6 +1,10 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import Downshift, { ControllerStateAndHelpers } from 'downshift'
+import Downshift, {
+  ControllerStateAndHelpers,
+  DownshiftState,
+  StateChangeOptions,
+} from 'downshift'
 import classnames from 'classnames'
 
 import Input, { Props as InputProps } from './Input'
@@ -145,8 +149,27 @@ const Suggestions = ({ props, ds }: SuggestionProps) => {
   )
 }
 
+function stateReducer(
+  state: DownshiftState<Suggestion>,
+  changes: StateChangeOptions<Suggestion>
+) {
+  // this prevents the input from clearing out on unknown values
+  // Which is useful if we want to add new items
+  switch (changes.type) {
+    case Downshift.stateChangeTypes.blurInput:
+    case Downshift.stateChangeTypes.mouseUp:
+      return {
+        ...changes,
+        inputValue: state.inputValue,
+      }
+    default:
+      return changes
+  }
+}
+
 export default (props: Props) => (
   <Downshift
+    stateReducer={stateReducer}
     onChange={props.onSelect}
     itemToString={props.itemToString}
     inputValue={props.inputValue}
