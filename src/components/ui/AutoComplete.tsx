@@ -15,11 +15,11 @@ interface Suggestion {
 }
 
 interface Props extends InputProps {
-  // onChange for downshift.
   onSelect?: (
     selectedItem: Suggestion,
     stateAndHelpers: ControllerStateAndHelpers<Suggestion>
   ) => void
+  selectedItem?: Suggestion | null
 
   getSuggestions: (inputValue: string | null) => Suggestion[]
   itemToString: (suggestion: Suggestion) => string
@@ -170,7 +170,8 @@ function stateReducer(
 export default (props: Props) => (
   <Downshift
     stateReducer={stateReducer}
-    onChange={props.onSelect}
+    onSelect={props.onSelect}
+    selectedItem={props.selectedItem}
     itemToString={props.itemToString}
     inputValue={props.inputValue}
     onInputValueChange={props.onInputValueChange}
