@@ -23,6 +23,7 @@ export default ({ children }: React.Props<{}>) => (
           toastClassName="toast-root"
           bodyClassName="toast-body"
           transition={Fade}
+          pauseOnHover={false}
         />
         <ThemeProvider theme={theme}>{children}</ThemeProvider>
       </div>

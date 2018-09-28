@@ -184,6 +184,7 @@ export default (props: Props) => (
         onKeyPress,
         onInputValueChange,
         inputValue,
+        selectedItem,
         ...inputProps
       } = props
 
