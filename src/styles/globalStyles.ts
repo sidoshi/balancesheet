@@ -11,6 +11,7 @@ import theme from './theme'
 // - https://github.com/Semantic-Org/Semantic-UI/issues/5738
 // - https://github.com/Metnew/suicrux/issues/27
 import './semantic/semantic.css'
+import 'react-toastify/dist/ReactToastify.css'
 
 const ingectGlobalStyles = () => injectGlobal`
   body {
@@ -27,6 +28,47 @@ const ingectGlobalStyles = () => injectGlobal`
       background-color: #CCE2FF;
       color: ${theme.textPrimary};
     }
+  }
+
+  .toast-root {
+    box-shadow:  2px 2px 3px ${theme.shadowPrimary},
+      3px 1px 2px ${theme.shadowSecondary};
+    border-radius: 5px;
+  }
+
+  .toast-body {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Lato;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .fadeIn {
+    animation-name: fadeIn;
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .fadeOut {
+    animation-name: fadeOut;
   }
 `
 
