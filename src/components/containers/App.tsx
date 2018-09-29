@@ -11,10 +11,12 @@ import { selectUsersById, selectCreditEntries } from '../../selectors'
 import { addUser } from '../../store/user/actions'
 import { UsersById, CASH_ID } from '../../types'
 import { buildUser } from '../../store/user/core'
+import { clearTransactions } from 'store/financials/actions'
 
 interface AppProps {
   usersById: UsersById
   addUser: typeof addUser
+  clearTransactions: typeof clearTransactions
 }
 
 class App extends React.Component<AppProps> {
@@ -22,6 +24,7 @@ class App extends React.Component<AppProps> {
     if (!this.props.usersById[CASH_ID]) {
       this.props.addUser(buildUser('cash', true))
     }
+    this.props.clearTransactions()
   }
 
   public render() {
@@ -44,6 +47,7 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
       addUser,
+      clearTransactions,
     },
     dispatch
   )
