@@ -41,13 +41,7 @@ const PageHeader = styled.h1`
   color: ${props => props.theme.textSecondary};
 `
 
-const Content = styled.div`
-  padding: 30px;
-  background-color: ${props => props.theme.backgroundTertiary};
-  box-shadow: 0 14px 28px ${props => props.theme.shadowPrimary},
-    0 10px 10px ${props => props.theme.shadowSecondary};
-  border-top: 5px solid ${props => props.theme.primary};
-`
+const Content = styled.div``
 
 class SecondaryPage extends React.Component<Props> {
   public render() {
