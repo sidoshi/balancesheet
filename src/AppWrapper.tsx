@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { ToastContainer, cssTransition } from 'react-toastify'
 
@@ -15,7 +15,7 @@ const Fade = cssTransition({
 
 export default ({ children }: React.Props<{}>) => (
   <Provider store={store}>
-    <BrowserRouter>
+    <Router>
       <div>
         <ToastContainer
           autoClose={2000}
@@ -27,6 +27,6 @@ export default ({ children }: React.Props<{}>) => (
         />
         <ThemeProvider theme={theme}>{children}</ThemeProvider>
       </div>
-    </BrowserRouter>
+    </Router>
   </Provider>
 )
