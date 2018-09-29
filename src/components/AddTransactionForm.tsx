@@ -1,9 +1,7 @@
 import * as React from 'react'
 import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
-import startCase from 'lodash/startCase'
 import countBy from 'lodash/countBy'
-import padEnd from 'lodash/padEnd'
 import styled from 'styled-components'
 import { toast } from 'react-toastify'
 
@@ -13,6 +11,7 @@ import { selectSortedUsers, selectUsersByName } from '../selectors'
 import { ApplicationState } from '../store'
 import { TransactionType, User, UsersByName } from '../types'
 import inrFmt from '../utils/inrFmt'
+import capitalized from '../utils/capitalized'
 import { buildUser } from '../store/user/core'
 import { buildTransaction } from '../store/financials/core'
 import Button from './ui/Button'
@@ -179,8 +178,7 @@ class AddTransactionForm extends React.Component<Props, State> {
   }
 
   private visibleName(name: string): string {
-    const capitalized = startCase(name.toLowerCase())
-    return padEnd(capitalized, name.length)
+    return capitalized(name)
   }
 
   private visibleAmount(amount: string): string {
