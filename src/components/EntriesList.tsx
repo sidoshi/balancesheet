@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import zip from 'lodash/zip'
 import { Table } from 'semantic-ui-react'
 
+import Row from './ui/Row'
 import { Entries } from '../types'
 import inrFmt from '../utils/inrFmt'
 import capitalized from '../utils/capitalized'
@@ -17,15 +18,6 @@ interface Props {
 const Wrapper = styled.div`
   max-width: 800px;
   margin: 100px auto;
-`
-
-const Row = styled(Table.Row)`
-  &&& {
-    font-size: 16px;
-    .amount {
-      letter-spacing: 1px;
-    }
-  }
 `
 
 class EntriesList extends React.Component<Props> {
