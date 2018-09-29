@@ -175,6 +175,7 @@ class AddTransactionForm extends React.Component<Props, State> {
     )
     toast.success('Transaction Success')
     this.resetForm()
+    ;(this.nameInputRef.current as any).focus()
   }
 
   private visibleName(name: string): string {

@@ -50,7 +50,13 @@ class EntriesList extends React.Component<Props> {
 
           <Table.Body>
             {entries.map(([debitEntry, creditEntry]) => (
-              <Row>
+              <Row
+                key={
+                  debitEntry
+                    ? debitEntry.userId
+                    : creditEntry && creditEntry.userId
+                }
+              >
                 <Table.Cell>
                   {debitEntry ? capitalized(debitEntry.name) : ''}
                 </Table.Cell>

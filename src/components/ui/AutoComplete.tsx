@@ -181,7 +181,6 @@ export default (props: Props) => (
         onSelect,
         getSuggestions,
         itemToString,
-        onKeyPress,
         onInputValueChange,
         inputValue,
         selectedItem,

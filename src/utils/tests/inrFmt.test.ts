@@ -10,4 +10,5 @@ test('formats numbers in inr style', () => {
   expect(inrFmt(23.222)).toBe('23.222')
   expect(inrFmt(233.222)).toBe('233.222')
   expect(inrFmt(2333.222)).toBe('2,333.222')
+  expect(inrFmt(-67000)).toBe('-67,000')
 })

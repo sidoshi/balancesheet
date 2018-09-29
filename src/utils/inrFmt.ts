@@ -1,4 +1,6 @@
 const inrFmt = (n: number): string => {
+  const isNegative = n < 0
+  n = Math.abs(n)
   const [int, fr] = n.toString().split('.')
   const num = []
   let cursor = 0
@@ -10,6 +12,9 @@ const inrFmt = (n: number): string => {
     if (cursor !== 1 && cursor % 2 !== 0 && i !== 0) {
       num.push(',')
     }
+  }
+  if (isNegative) {
+    num.push('-')
   }
 
   const str = num.reverse().join('')
