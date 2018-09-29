@@ -18,6 +18,7 @@ import Button from './ui/Button'
 import Input from './ui/Input'
 import ToggleButton from './ui/ToggleButton'
 import AutoComplete from './ui/AutoComplete'
+import { Link } from 'react-router-dom'
 
 interface Props {
   sortedUsers: User[]
@@ -45,6 +46,15 @@ const Container = styled.div`
 
   &&& > * {
     margin: 0 5px;
+  }
+`
+
+const FLoatRight = styled.div`
+  &&& > * {
+    margin: 0 5px;
+  }
+  &&& {
+    margin-left: auto;
   }
 `
 
@@ -105,6 +115,15 @@ class AddTransactionForm extends React.Component<Props, State> {
         <Button primary={true} tabIndex={1} onClick={this.createTransaction}>
           Submit
         </Button>
+
+        <FLoatRight>
+          <Link to="/users">
+            <Button>Users</Button>
+          </Link>
+          <Link to="/transactions">
+            <Button>Transactions</Button>
+          </Link>
+        </FLoatRight>
       </Container>
     )
   }

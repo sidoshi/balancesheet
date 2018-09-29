@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import SecondaryPage from './SecondaryPage'
+
 interface UserInfoProps {
   match: {
     params: {
@@ -9,7 +11,9 @@ interface UserInfoProps {
 }
 
 const UserInfo = ({ match }: UserInfoProps) => (
-  <h1>User: {match.params.userId}</h1>
+  <SecondaryPage header="User Info">
+    <h1>User: {match.params.userId}</h1>
+  </SecondaryPage>
 )
 
 export default UserInfo

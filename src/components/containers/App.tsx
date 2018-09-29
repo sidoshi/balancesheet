@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import BalanceSheetContainer from './BalanceSheet'
 import UserInfoContainer from './UserInfo'
 import TransactionsContainer from './Transactions'
+import UsersContainer from './Users'
 import { ApplicationState } from '../../store'
 import { selectUsersById, selectCreditEntries } from '../../selectors'
 import { addUser } from '../../store/user/actions'
@@ -32,6 +33,7 @@ class App extends React.Component<AppProps> {
       <React.Fragment>
         <Switch>
           <Route exact={true} path="/" component={BalanceSheetContainer} />
+          <Route path="/users" component={UsersContainer} />
           <Route path="/user/:userId" component={UserInfoContainer} />
           <Route path="/transactions" component={TransactionsContainer} />
         </Switch>
