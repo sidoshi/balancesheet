@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
@@ -30,9 +30,11 @@ class App extends React.Component<AppProps> {
   public render() {
     return (
       <React.Fragment>
-        <Route exact={true} path="/" component={BalanceSheetContainer} />
-        <Route path="/user/:userId" component={UserInfoContainer} />
-        <Route path="/transactions" component={TransactionsContainer} />
+        <Switch>
+          <Route exact={true} path="/" component={BalanceSheetContainer} />
+          <Route path="/user/:userId" component={UserInfoContainer} />
+          <Route path="/transactions" component={TransactionsContainer} />
+        </Switch>
       </React.Fragment>
     )
   }
