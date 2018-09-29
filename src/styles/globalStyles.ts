@@ -18,6 +18,7 @@ const ingectGlobalStyles = () => injectGlobal`
     margin: 0;
     color: ${theme.textPrimary};
     background-color: ${theme.backgroundPrimary};
+    height: auto;
     
     &::selection {
       background-color: #CCE2FF;
