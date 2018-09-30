@@ -43,7 +43,9 @@ export class TransactionsList extends React.Component<Props> {
                   {capitalized(this.props.usersById[t.userId].name)}
                 </Link>
               </Table.Cell>
-              <Table.Cell>{inrFmt(Math.abs(t.amount))}</Table.Cell>
+              <Table.Cell className="amount">
+                {inrFmt(Math.abs(t.amount))}
+              </Table.Cell>
               <Table.Cell>
                 {format(toDate(t.createdAt), 'dd/MM/YY - hh:mm a')}
               </Table.Cell>
