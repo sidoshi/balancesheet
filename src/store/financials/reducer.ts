@@ -1,7 +1,7 @@
 import { Reducer } from 'redux'
 import { ActionType, getType } from 'typesafe-actions'
 
-import { FinancialsState } from '../../types'
+import { FinancialsState, CASH_ID } from '../../types'
 import * as actions from './actions'
 import {
   createTransaction,
@@ -29,6 +29,20 @@ const reducer: Reducer<FinancialsState> = (
 
     case getType(actions.clearTransactions):
       return cleanupOldTransactions(state)
+
+    case getType(actions.removeDeletedUser):
+      const calculatedBalances = state.calculatedBalances
+      const {
+        [action.payload]: deletedUser,
+        ...deletedBalances
+      } = calculatedBalances
+
+      deletedBalances[CASH_ID] += deletedUser
+
+      return {
+        ...state,
+        calculatedBalances: deletedBalances,
+      }
 
     default:
       return state

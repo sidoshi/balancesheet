@@ -16,3 +16,7 @@ export const deleteTransaction = createStandardAction(
 export const clearTransactions = createStandardAction(
   actions.CLEAR_TRANSACTIONS
 )<void>()
+
+export const removeDeletedUser = createStandardAction(
+  actions.REMOVE_DELETED_USER
+)<string>()

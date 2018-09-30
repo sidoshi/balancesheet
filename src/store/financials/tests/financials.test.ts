@@ -205,3 +205,21 @@ test('cleanups old transaction', () => {
   expect(state6.recentTransactions).toEqual([recentTransaction])
   resetDateMock()
 })
+
+test('removes deleted user', () => {
+  const transaction = buildTransaction('user1', 20000, TransactionType.CASH)
+
+  const state = reducer(undefined, actions.createTransaction(transaction))
+
+  expect(state.calculatedBalances).toEqual({
+    user1: 20000,
+    [CASH_ID]: -20000,
+  })
+
+  const afterDelete = reducer(state, actions.removeDeletedUser('user1'))
+  expect(state.calculatedBalances).toEqual({
+    user1: 20000,
+    [CASH_ID]: -20000,
+  })
+  expect(afterDelete.calculatedBalances).toEqual({ [CASH_ID]: 0 })
+})
