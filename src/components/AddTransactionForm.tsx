@@ -123,6 +123,9 @@ class AddTransactionForm extends React.Component<Props, State> {
           <Link to="/transactions">
             <Button>Transactions</Button>
           </Link>
+          <Link target="_blank" to="/print">
+            <Button icon="print" />
+          </Link>
         </FLoatRight>
       </Container>
     )

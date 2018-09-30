@@ -13,6 +13,7 @@ import { addUser } from '../../store/user/actions'
 import { UsersById, CASH_ID } from '../../types'
 import { buildUser } from '../../store/user/core'
 import { clearTransactions } from 'store/financials/actions'
+import PrintEntries from './PrintEntries'
 
 interface AppProps {
   usersById: UsersById
@@ -36,6 +37,7 @@ class App extends React.Component<AppProps> {
           <Route path="/users" component={UsersContainer} />
           <Route path="/user/:userId" component={UserInfoContainer} />
           <Route path="/transactions" component={TransactionsContainer} />
+          <Route path="/print" component={PrintEntries} />
         </Switch>
       </React.Fragment>
     )
