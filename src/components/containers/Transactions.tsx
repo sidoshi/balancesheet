@@ -13,6 +13,7 @@ import inrFmt from 'utils/inrFmt'
 import { format, toDate } from 'date-fns'
 import { Dispatch, bindActionCreators } from 'redux'
 import { deleteTransaction } from 'store/financials/actions'
+import Link from '../ui/Link'
 
 interface Props {
   recentTransactions: Transaction[]
@@ -38,7 +39,9 @@ export class TransactionsList extends React.Component<Props> {
             <Row key={t.id}>
               <Table.Cell>{t.amount < 0 ? 'Credit' : 'Debit'}</Table.Cell>
               <Table.Cell>
-                {capitalized(this.props.usersById[t.userId].name)}
+                <Link to={`/user/${t.userId}`}>
+                  {capitalized(this.props.usersById[t.userId].name)}
+                </Link>
               </Table.Cell>
               <Table.Cell>{inrFmt(Math.abs(t.amount))}</Table.Cell>
               <Table.Cell>

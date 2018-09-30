@@ -7,6 +7,7 @@ import Row from './ui/Row'
 import { Entries } from '../types'
 import inrFmt from '../utils/inrFmt'
 import capitalized from '../utils/capitalized'
+import Link from './ui/Link'
 
 interface Props {
   creditEntries: Entries
@@ -50,13 +51,21 @@ class EntriesList extends React.Component<Props> {
                 }
               >
                 <Table.Cell>
-                  {debitEntry ? capitalized(debitEntry.name) : ''}
+                  {debitEntry ? (
+                    <Link to={`/user/${debitEntry.userId}`}>
+                      {capitalized(debitEntry.name)}
+                    </Link>
+                  ) : null}
                 </Table.Cell>
                 <Table.Cell className="amount">
                   {debitEntry ? inrFmt(debitEntry.amount) : ''}
                 </Table.Cell>
                 <Table.Cell>
-                  {creditEntry ? capitalized(creditEntry.name) : ''}
+                  {creditEntry ? (
+                    <Link to={`/user/${creditEntry.userId}`}>
+                      {capitalized(creditEntry.name)}
+                    </Link>
+                  ) : null}
                 </Table.Cell>
                 <Table.Cell className="amount">
                   {creditEntry ? inrFmt(creditEntry.amount) : ''}

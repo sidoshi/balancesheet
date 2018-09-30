@@ -8,6 +8,7 @@ import {
   Transactions,
   Entries,
   CASH_ID,
+  TransactionType,
 } from '../types'
 
 export const selectUsersById = (state: State): UsersById =>
@@ -94,5 +95,7 @@ export const selectUsersRecentTransactions = createSelector(
   selectRecentTransactions,
   (state: ApplicationState, props: { userId: string }) => props.userId,
   (transactions: Transactions, userId: string): Transactions =>
-    transactions.filter(tsx => tsx.userId === userId)
+    userId === CASH_ID
+      ? transactions.filter(tsx => tsx.type === TransactionType.CASH)
+      : transactions.filter(tsx => tsx.userId === userId)
 )
