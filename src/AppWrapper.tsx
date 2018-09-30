@@ -15,7 +15,7 @@ const Fade = cssTransition({
 
 export default ({ children }: React.Props<{}>) => (
   <Provider store={store}>
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div>
         <ToastContainer
           autoClose={2000}
